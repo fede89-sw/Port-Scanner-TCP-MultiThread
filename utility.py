@@ -19,4 +19,4 @@ def multithread(funzione, iterabile, lunghezza):
                 progress = (indice_loop / lunghezza) * 100
                 console.print(f"Scan in corso: [bold green]{progress:.2f}%[/bold green]", end="\r")
         except KeyboardInterrupt:
-            console.print("exiting...", style="italic red")
+            console.print("\nexiting...", style="italic red")

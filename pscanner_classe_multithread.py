@@ -30,12 +30,15 @@ class Pscanner:
             console.print(f"Errore nel reperire l'indirizzo ip...[italic red]{error}[/italic red]")
             sys.exit()
 
+
     def inizializza(self):
+        console.print("[cyan]PORT SCANNER TCP MULTITHREAD[/cyan]")
+        print()
         target = input("Inserisci Target: ")
         self.get_ip(target)
         self.chiavi_json_int()
         try:
-            input("\nPort Scanner pronto! Premi ENTER per avviare la scansione...")
+            console.input("\nPort Scanner pronto! Premi ENTER per avviare la scansione...")
         except KeyboardInterrupt:
             console.print("exiting...", style="italic red")
             sys.exit()
@@ -55,6 +58,7 @@ class Pscanner:
             self.porte_aperte.append(port)
             sock.close()
 
+
     def show_port(self):
         if self.porte_aperte:
             table = Table(show_header = True, style="bold blue")
@@ -65,8 +69,10 @@ class Pscanner:
             for port in self.porte_aperte:
                 table.add_row(str(port), "OPEN", self.port_to_check[port] )
             console.print(table)
+            input()
         else:
             console.print("Non sono state trovate porte aperte!", style="bold magenta")
+            input()
 
 
 if __name__ == "__main__":
