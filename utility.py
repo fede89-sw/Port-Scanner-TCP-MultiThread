@@ -11,7 +11,7 @@ def estrai_json(common_ports):
     return data
 
 def multithread(funzione, iterabile, lunghezza):
-    number_of_workers = os.cpu_count() # numero di cpu nel PC
+    number_of_workers = os.cpu_count()
     print(f"Scannerizzo con {number_of_workers} workers...")
     with  ThreadPool(number_of_workers) as pool:
         try:
